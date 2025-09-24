@@ -1,0 +1,12 @@
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/bin/Debug/net9.0/ECommerceAPI.Domain.deps.json
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/bin/Debug/net9.0/ECommerceAPI.Domain.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/bin/Debug/net9.0/ECommerceAPI.Domain.pdb
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ECommerceAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ECommerceAPI.Domain.AssemblyInfoInputs.cache
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ECommerceAPI.Domain.AssemblyInfo.cs
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ECommerceAPI.Domain.csproj.CoreCompileInputs.cache
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ECommerceAPI.Domain.sourcelink.json
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ECommerceAPI.Domain.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/refint/ECommerceAPI.Domain.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ECommerceAPI.Domain.pdb
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ref/ECommerceAPI.Domain.dll

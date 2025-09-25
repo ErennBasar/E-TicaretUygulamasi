@@ -85,8 +85,8 @@ namespace ECommerceAPI.Persistence.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
-                    b.Property<string>("Stock")
-                        .HasColumnType("text");
+                    b.Property<int>("Stock")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");

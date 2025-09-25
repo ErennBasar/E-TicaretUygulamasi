@@ -657,7 +657,8 @@
       "System.Threading.Channels/7.0.0": {},
       "ECommerceAPI.Application/1.0.0": {
         "dependencies": {
-          "ECommerceAPI.Domain": "1.0.0"
+          "ECommerceAPI.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.9"
         },
         "runtime": {
           "ECommerceAPI.Application.dll": {

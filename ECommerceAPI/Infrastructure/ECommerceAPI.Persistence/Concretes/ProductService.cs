@@ -12,21 +12,21 @@ public class ProductService : IProductService
             {
                 Id = Guid.NewGuid(),
                 Name = "Product 1",
-                Stock = "10",
+                Stock = 10,
                 Price = 100
             },
             new ()
             {
                 Id = Guid.NewGuid(),
                 Name = "Product 2",
-                Stock = "20",
+                Stock = 20,
                 Price = 200
             },
             new()
             {
                 Id = Guid.NewGuid(),
                 Name = "Product 3",
-                Stock = "30",
+                Stock = 30,
                 Price = 300
             }
         };

@@ -1,6 +1,12 @@
 using ECommerceAPI.Application.Abstractions;
+using ECommerceAPI.Application.Repositories.Customer;
+using ECommerceAPI.Application.Repositories.Order;
+using ECommerceAPI.Application.Repositories.Product;
 using ECommerceAPI.Persistence.Concretes;
 using ECommerceAPI.Persistence.Contexts;
+using ECommerceAPI.Persistence.Repositories.Customer;
+using ECommerceAPI.Persistence.Repositories.Order;
+using ECommerceAPI.Persistence.Repositories.Product;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +21,17 @@ public static class ServiceRegistration
 
         // Postgresql kullanacağım için Nuget'den Npgsql.EntityFrameworkCore.PostgreSQL ekledim
         services.AddDbContext<ETicaretAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionString));
+        
+        // AddDbContext default olarak scoped olarak eklediği için Repository servislerini de scoped olarak ekledik.
+        
+        // Sigleton'da hepsi için bir nesne oluşturulur. 
+        // Scoped'da her request için oluşturulan nesne iş bittikten sonra imha (dispose) edilir.
+        services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
+        services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
+        services.AddScoped<IOrderReadRepository, OrderReadRepository>();
+        services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+        services.AddScoped<IProductReadRepository, ProductReadRepository>();
+        services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
     } 
     
 }

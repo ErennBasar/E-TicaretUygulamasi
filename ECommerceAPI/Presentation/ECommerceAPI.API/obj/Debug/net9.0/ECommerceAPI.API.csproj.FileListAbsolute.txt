@@ -227,3 +227,16 @@
 /Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/ECommerceAPI.Persistence.dll
 /Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/ECommerceAPI.Persistence.pdb
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Npgsql.dll
+/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll

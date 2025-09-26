@@ -53,9 +53,29 @@ namespace ECommerceAPI.API.Controllers
             // });
             // await _productWriteRepository.SaveAsync();
             
-            Product p = await _productReadRepository.GetByIdAsync("396c20b8-62d2-4fa1-993d-2867e9c7b2fc",false); // Tracking = false old. için yaptığım isim değişikliği kaydedilmedi
-            p.Name = "Eren";
-            await _productWriteRepository.SaveAsync();
+            // Product p = await _productReadRepository.GetByIdAsync("396c20b8-62d2-4fa1-993d-2867e9c7b2fc",false); // Tracking = false old. için yaptığım isim değişikliği kaydedilmedi
+            // p.Name = "Eren";
+            // await _productWriteRepository.SaveAsync();
+
+            // Ortak entity'leri (BaseEntity içindekiler mesela) ortak bir yerden gödermemiz lazım teker teker yazmak yanlış olur.
+            // Bunu da interceptor oluşturarak yapacağız
+            
+            // await _productWriteRepository.AddAsync(new() { Name = "C Product", Price = 1000, CreatedDate = DateTime.UtcNow, Stock = 10 });
+            // await _productWriteRepository.SaveAsync();
+            
+            // var customerId = Guid.NewGuid();
+            // await _customerWriteRepository.AddAsync(new() { Id = customerId, Name = "İclal" });
+            //
+            // await _orderWriteRepository.AddAsync(new() { Description = "Ev", Address = "Kocaeli, Kartepe", CustomerId = customerId });
+            // await _orderWriteRepository.AddAsync(new() { Description = "bla bla bla 2", Address = "Ankara, Pursaklar", CustomerId = customerId});
+            // await _orderWriteRepository.SaveAsync();
+            
+            // Üstte sipariş ve müşteri oluşturdum. Aşağıda ise adres değişikliği yaptım
+            
+            Order order = await _orderReadRepository.GetByIdAsync("01998665-eb8f-7d8b-90cc-e741607e81d3");
+            order.Address = "İstanbul, Maltepe";
+            order.Description = "İş Yeri";
+            await _orderWriteRepository.SaveAsync();
         }
 
         [HttpGet("{id}")]

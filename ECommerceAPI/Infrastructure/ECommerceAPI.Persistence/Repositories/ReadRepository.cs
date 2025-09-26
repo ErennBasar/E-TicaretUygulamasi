@@ -17,6 +17,9 @@ public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
 
     public DbSet<T> Table => _context.Set<T>();
 
+    // Tracking ne zaman kullanılmaz !
+    // Veri üzerinde herhangi bir değişiklik yapılmayacaksa kullanmak mantıksız.
+    // Mesela 1000 tane ürün var bunları sadece listelemek istiyorsak kullanılmaz. Çünkü boşuna maliyet demek.
     public IQueryable<T> GetAll(bool tracking = true)
         //=> Table();
     {

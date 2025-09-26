@@ -5,7 +5,7 @@ namespace ECommerceAPI.Application.Repositories;
 
 public interface IReadRepository<T> : IRepository<T> where T : BaseEntity
 {
-    IQueryable<T> GetAll(bool tracking = true);
+    IQueryable<T> GetAll(bool tracking = true);// Tracking sayesinde yapılan değişikliğin delete'mi, update'mi vb. olduğunu anlıyor
     
     //bir şart olsun bu şartı sağlayan birden fazla veri getirilsin
     IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true); // bu özel tanımlı fonksiyona verilen şart ifadesi doğru olan datalar sorgulanıp getirilecek

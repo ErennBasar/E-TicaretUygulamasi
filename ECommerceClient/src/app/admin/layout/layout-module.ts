@@ -10,7 +10,7 @@ import {RouterModule} from '@angular/router';
   imports: [
     CommonModule,
     ComponentsModule,
-    RouterModule
+    RouterModule,
   ]
 })
 export class LayoutModule { }

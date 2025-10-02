@@ -1,1 +1,72 @@
+# -----------------------
+# Visual Studio & Rider
+# -----------------------
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# -----------------------
+# Build
+# -----------------------
+**/bin/
+**/obj/
+**/out/
+
+# -----------------------
+# NuGet
+# -----------------------
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# -----------------------
+# Dotnet
+# -----------------------
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.DotSettings.user
+
+# -----------------------
+# Rider
+# -----------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# -----------------------
+# Node / Angular
+# -----------------------
+node_modules/
+dist/
+tmp/
+*.log
+package-lock.json
+yarn.lock
+
+# -----------------------
+# Angular / VS Code
+# -----------------------
+.vscode/
+.angular/
+coverage/
+.angular/cache/
+
+# -----------------------
+# Environment / Config
+# -----------------------
+.env
+.env.local
+.env.*.local
+
+# -----------------------
+# OS Files
+# -----------------------
 .DS_Store
+Thumbs.db

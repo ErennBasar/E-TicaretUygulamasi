@@ -1,25 +1,23 @@
-import { Component, signal } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
-import {Layout} from './admin/layout/layout';
 import {AdminModule} from './admin/admin-module';
 import {UiModule} from './ui/ui-module';
+import {CustomToastrService, ToastrMessageType, ToastrPosition} from './services/ui/custom-toastr';
+import {NgxSpinnerModule} from 'ngx-spinner';
 declare var $: any;
-import {BrowserAnimationsModule, provideAnimations} from '@angular/platform-browser/animations';
-import {ToastrModule, provideToastr, ToastrService} from 'ngx-toastr';
-import bootstrap from '../main.server';
+
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    Layout,
     AdminModule,
     UiModule,
     RouterLink,
-    BrowserAnimationsModule,
+    NgxSpinnerModule,
   ],
   providers: [
-    provideAnimations(),
+    {provide: "baseURL", useValue: "http://localhost:5013/api/", multi: true}
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
@@ -27,7 +25,10 @@ import bootstrap from '../main.server';
 export class App {
   protected readonly title = signal('ECommerceClient');
 
-  constructor(private toastr: ToastrService) {
-    toastr.success('Hello world!', 'Toastr fun!');
+  constructor() {
+
   }
 }
+$.get("http://localhost:5013/api/products", data => {
+  console.log(data);
+})

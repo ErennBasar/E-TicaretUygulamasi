@@ -1,7 +1,9 @@
+using System.Net;
 using ECommerceAPI.Application.Abstractions;
 using ECommerceAPI.Application.Repositories.Customer;
 using ECommerceAPI.Application.Repositories.Order;
 using ECommerceAPI.Application.Repositories.Product;
+using ECommerceAPI.Application.ViewModels.Products;
 using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,26 +17,70 @@ namespace ECommerceAPI.API.Controllers
         //private readonly IProductService _productService;
         private readonly IProductWriteRepository _productWriteRepository;
         private readonly IProductReadRepository _productReadRepository;
-        private readonly IOrderWriteRepository _orderWriteRepository;
-        private readonly ICustomerWriteRepository _customerWriteRepository;
-        private readonly IOrderReadRepository _orderReadRepository;
+        // private readonly IOrderWriteRepository _orderWriteRepository;
+        // private readonly ICustomerWriteRepository _customerWriteRepository;
+        // private readonly IOrderReadRepository _orderReadRepository;
 
         public ProductsController(
-            IProductService productService,
+            //IProductService productService,
             IProductWriteRepository productWriteRepository, 
-            IProductReadRepository productReadRepository, 
-            IOrderWriteRepository orderWriteRepository,
-            ICustomerWriteRepository customerWriteRepository,
-            IOrderReadRepository orderReadRepository)
+            IProductReadRepository productReadRepository
+            // IOrderWriteRepository orderWriteRepository,
+            // ICustomerWriteRepository customerWriteRepository,
+            // IOrderReadRepository orderReadRepository
+            )
         {
            // _productService = productService;
             _productWriteRepository = productWriteRepository;
             _productReadRepository = productReadRepository;
-            _orderWriteRepository = orderWriteRepository;
-            _customerWriteRepository = customerWriteRepository;
-            _orderReadRepository = orderReadRepository;
+            // _orderWriteRepository = orderWriteRepository;
+            // _customerWriteRepository = customerWriteRepository;
+            // _orderReadRepository = orderReadRepository;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            return Ok(_productReadRepository.GetAll(false));
+        }
+        
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(string id)
+        {
+            return Ok(await _productReadRepository.GetByIdAsync(id,false));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(VmCreateProduct model)
+        {
+            await _productWriteRepository.AddAsync(new()
+            {
+                Name = model.Name,
+                Price = model.Price,
+                Stock = model.Stock,
+            });
+            await _productWriteRepository.SaveAsync();
+            return StatusCode((int)HttpStatusCode.Created);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(VmUpdateProduct model)
+        {
+            Product product = await _productReadRepository.GetByIdAsync(model.Id);
+            product.Stock = model.Stock;
+            product.Name = model.Name;
+            product.Price = model.Price;
+            await _productWriteRepository.SaveAsync();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _productWriteRepository.RemoveAsync(id);
+            await _productWriteRepository.SaveAsync();
+            return Ok();
+        }
         // [HttpGet]
         // public IActionResult GetProducts()
         // {
@@ -42,9 +88,9 @@ namespace ECommerceAPI.API.Controllers
         //     return Ok(products);
         // }
 
-        [HttpGet]
-        public async Task Get() 
-        {
+        // [HttpGet]
+        // public async Task<IActionResult> Get() 
+        // {
             // await _productWriteRepository.AddRangeAsync(new()
             // {
             //     new(){ Id = Guid.NewGuid(), Name = "Product 4", Price = 100, CreatedDate = DateTime.UtcNow, Stock = 10},
@@ -72,17 +118,19 @@ namespace ECommerceAPI.API.Controllers
             
             // Üstte sipariş ve müşteri oluşturdum. Aşağıda ise adres değişikliği yaptım
             
-            Order order = await _orderReadRepository.GetByIdAsync("01998665-eb8f-7d8b-90cc-e741607e81d3");
-            order.Address = "İstanbul, Maltepe";
-            order.Description = "İş Yeri";
-            await _orderWriteRepository.SaveAsync();
-        }
+            // Order order = await _orderReadRepository.GetByIdAsync("01998665-eb8f-7d8b-90cc-e741607e81d3");
+            // order.Address = "İstanbul, Maltepe";
+            // order.Description = "İş Yeri";
+            // await _orderWriteRepository.SaveAsync();
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(string id)
-        {
-            Product product = await _productReadRepository.GetByIdAsync(id);
-            return Ok(product);
-        }
+        //     return Ok("Merhaba");
+        // }
+
+        // [HttpGet("{id}")]
+        // public async Task<IActionResult> GetById(string id)
+        // {
+        //     Product product = await _productReadRepository.GetByIdAsync(id);
+        //     return Ok(product);
+        // }
     }
 }

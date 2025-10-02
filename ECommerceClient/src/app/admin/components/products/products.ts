@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Base, SpinnerType} from '../../../base/base';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-products',
@@ -6,6 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './products.html',
   styleUrl: './products.scss'
 })
-export class Products {
+export class Products extends Base implements OnInit {
+  constructor(spinner: NgxSpinnerService) {
+    super(spinner);
+  }
 
+  ngOnInit() {
+    this.showSpinner(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING)
+  }
 }

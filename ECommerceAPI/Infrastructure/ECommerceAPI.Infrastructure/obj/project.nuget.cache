@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "LTy50kaG6Kc=",
+  "dgSpecHash": "wIRVm0Sm4XU=",
   "success": true,
   "projectFilePath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Infrastructure/ECommerceAPI.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/Users/erenbasar/.nuget/packages/fluentvalidation/10.4.0/fluentvalidation.10.4.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/fluentvalidation.aspnetcore/10.4.0/fluentvalidation.aspnetcore.10.4.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/fluentvalidation.dependencyinjectionextensions/10.4.0/fluentvalidation.dependencyinjectionextensions.10.4.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.entityframeworkcore/9.0.9/microsoft.entityframeworkcore.9.0.9.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.9/microsoft.entityframeworkcore.abstractions.9.0.9.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.entityframeworkcore.analyzers/9.0.9/microsoft.entityframeworkcore.analyzers.9.0.9.nupkg.sha512",

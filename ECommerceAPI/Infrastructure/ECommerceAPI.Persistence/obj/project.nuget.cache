@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "N+E/K4Y0jms=",
+  "dgSpecHash": "ovJPuYNwJNQ=",
   "success": true,
   "projectFilePath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj",
   "expectedPackageFiles": [
+    "/Users/erenbasar/.nuget/packages/fluentvalidation/10.4.0/fluentvalidation.10.4.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/fluentvalidation.aspnetcore/10.4.0/fluentvalidation.aspnetcore.10.4.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/fluentvalidation.dependencyinjectionextensions/10.4.0/fluentvalidation.dependencyinjectionextensions.10.4.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.build.framework/17.8.3/microsoft.build.framework.17.8.3.nupkg.sha512",

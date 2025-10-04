@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "BxrcyFhia9Y=",
+  "dgSpecHash": "v0Lx+QVSrLY=",
   "success": true,
   "projectFilePath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj",
   "expectedPackageFiles": [
+    "/Users/erenbasar/.nuget/packages/fluentvalidation/10.4.0/fluentvalidation.10.4.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/fluentvalidation.aspnetcore/10.4.0/fluentvalidation.aspnetcore.10.4.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/fluentvalidation.dependencyinjectionextensions/10.4.0/fluentvalidation.dependencyinjectionextensions.10.4.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/humanizer/2.14.1/humanizer.2.14.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/humanizer.core.af/2.14.1/humanizer.core.af.2.14.1.nupkg.sha512",

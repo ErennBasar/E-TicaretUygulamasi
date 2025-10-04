@@ -1,4 +1,7 @@
+using ECommerceAPI.Application.Validators.Products;
+using ECommerceAPI.Infrastructure.Filters;
 using ECommerceAPI.Persistence;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +12,10 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
     ));
 
 // Services üstüne geldiğinde IServiceCollection olduğu gözüküyor. Yani IoC konteynırına eklemem gerekenleri IServiceCollection üzerinden ekliyoruz.
-builder.Services.AddControllers(); 
+builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
+    .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
+        // CreateProductValidator ekledik çünkü; ekleyeceğim başka validator'lar olursa otomatik olarak eklenecek.
+    .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
 
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();

@@ -48,6 +48,18 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.4.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.4.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[10.4.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.9, )"

@@ -38,12 +38,36 @@ export class Create extends Base implements OnInit{
     create_product.stock = parseInt(stock.value);
     create_product.price = parseFloat(price.value);
 
+    if(!name.value){
+      this.alertify.message("Please enter the product name!",{
+        dismissOthers: true,
+        messageType: MessageType.WARNING,
+        position: Position.BOTTOM_RIGHT
+      });
+      return;
+    }
+
+    if(parseInt(stock.value) < 0){
+      this.alertify.message("Please check your stock value!",{
+        dismissOthers: true,
+        messageType: MessageType.WARNING,
+        position: Position.BOTTOM_RIGHT
+      });
+      return;
+    }
+
     this.productService.create(create_product, () => {
       this.hideSpinner(SpinnerType.PACMAN)
       this.alertify.message("product succesfly added",{
         dismissOthers: true,
         messageType: MessageType.SUCCESS,
         position: Position.BOTTOM_RIGHT
+      });
+    }, errorMessage => {
+      this.alertify.message(errorMessage, {
+        dismissOthers: true,
+        messageType: MessageType.ERROR,
+        position: Position.TOP_RIGHT
       });
     });
   };

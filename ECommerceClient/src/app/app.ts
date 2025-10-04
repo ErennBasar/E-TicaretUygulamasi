@@ -4,6 +4,7 @@ import {AdminModule} from './admin/admin-module';
 import {UiModule} from './ui/ui-module';
 import {CustomToastrService, ToastrMessageType, ToastrPosition} from './services/ui/custom-toastr';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { HttpClientModule } from '@angular/common/http';
 declare var $: any;
 
 
@@ -15,9 +16,7 @@ declare var $: any;
     UiModule,
     RouterLink,
     NgxSpinnerModule,
-  ],
-  providers: [
-    {provide: "baseURL", useValue: "http://localhost:5013/api/", multi: true}
+    HttpClientModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
@@ -29,6 +28,6 @@ export class App {
 
   }
 }
-$.get("http://localhost:5013/api/products", data => {
-  console.log(data);
-})
+// $.get("http://localhost:5013/api/products", data => {
+//   console.log(data);
+// })

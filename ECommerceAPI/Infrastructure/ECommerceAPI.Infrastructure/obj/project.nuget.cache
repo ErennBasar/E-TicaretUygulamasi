@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sQzGRH6HQ8A=",
+  "dgSpecHash": "LTy50kaG6Kc=",
   "success": true,
-  "projectFilePath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Infrastructure/ECommerceAPI.Infrastructure.csproj",
+  "projectFilePath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Infrastructure/ECommerceAPI.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/erenbasar/.nuget/packages/microsoft.entityframeworkcore/9.0.9/microsoft.entityframeworkcore.9.0.9.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.9/microsoft.entityframeworkcore.abstractions.9.0.9.nupkg.sha512",

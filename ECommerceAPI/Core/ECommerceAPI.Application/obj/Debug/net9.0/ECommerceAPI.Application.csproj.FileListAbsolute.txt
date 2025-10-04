@@ -1,0 +1,16 @@
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/bin/Debug/net9.0/ECommerceAPI.Application.deps.json
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/bin/Debug/net9.0/ECommerceAPI.Application.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/bin/Debug/net9.0/ECommerceAPI.Application.pdb
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/bin/Debug/net9.0/ECommerceAPI.Domain.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/bin/Debug/net9.0/ECommerceAPI.Domain.pdb
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ECommerceAPI.Application.csproj.AssemblyReference.cache
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ECommerceAPI.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ECommerceAPI.Application.AssemblyInfoInputs.cache
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ECommerceAPI.Application.AssemblyInfo.cs
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ECommerceAPI.Application.csproj.CoreCompileInputs.cache
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ECommerceAPI.Application.sourcelink.json
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ECommerc.F181CD37.Up2Date
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ECommerceAPI.Application.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/refint/ECommerceAPI.Application.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ECommerceAPI.Application.pdb
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/Debug/net9.0/ref/ECommerceAPI.Application.dll

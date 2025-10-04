@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n7kZLxmrP90=",
+  "dgSpecHash": "N+E/K4Y0jms=",
   "success": true,
-  "projectFilePath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj",
+  "projectFilePath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj",
   "expectedPackageFiles": [
     "/Users/erenbasar/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

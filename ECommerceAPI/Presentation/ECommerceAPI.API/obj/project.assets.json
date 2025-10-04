@@ -6309,11 +6309,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj",
+      "projectUniqueName": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj",
       "projectName": "ECommerceAPI.API",
-      "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj",
+      "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj",
       "packagesPath": "/Users/erenbasar/.nuget/packages/",
-      "outputPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/obj/",
+      "outputPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/erenbasar/.nuget/NuGet/NuGet.Config"
@@ -6328,11 +6328,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj": {
-              "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj"
+            "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj": {
+              "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj"
             },
-            "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj": {
-              "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj"
+            "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj": {
+              "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj"
             }
           }
         }

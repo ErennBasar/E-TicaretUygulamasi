@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj": {}
+    "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj": {}
   },
   "projects": {
-    "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj": {
+    "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj",
+        "projectUniqueName": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj",
         "projectName": "ECommerceAPI.Application",
-        "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj",
+        "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj",
         "packagesPath": "/Users/erenbasar/.nuget/packages/",
-        "outputPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/obj/",
+        "outputPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/erenbasar/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj": {
-                "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj"
+              "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj": {
+                "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj"
               }
             }
           }
@@ -73,14 +73,14 @@
         }
       }
     },
-    "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj": {
+    "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj",
+        "projectUniqueName": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj",
         "projectName": "ECommerceAPI.Domain",
-        "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj",
+        "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/ECommerceAPI.Domain.csproj",
         "packagesPath": "/Users/erenbasar/.nuget/packages/",
-        "outputPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Domain/obj/",
+        "outputPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/erenbasar/.nuget/NuGet/NuGet.Config"
@@ -132,14 +132,14 @@
         }
       }
     },
-    "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj": {
+    "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj",
+        "projectUniqueName": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj",
         "projectName": "ECommerceAPI.Persistence",
-        "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj",
+        "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj",
         "packagesPath": "/Users/erenbasar/.nuget/packages/",
-        "outputPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/obj/",
+        "outputPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/erenbasar/.nuget/NuGet/NuGet.Config"
@@ -154,8 +154,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj": {
-                "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj"
+              "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj": {
+                "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj"
               }
             }
           }
@@ -223,14 +223,14 @@
         }
       }
     },
-    "/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj": {
+    "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj",
+        "projectUniqueName": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj",
         "projectName": "ECommerceAPI.API",
-        "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj",
+        "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/ECommerceAPI.API.csproj",
         "packagesPath": "/Users/erenbasar/.nuget/packages/",
-        "outputPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Presentation/ECommerceAPI.API/obj/",
+        "outputPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/erenbasar/.nuget/NuGet/NuGet.Config"
@@ -245,11 +245,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj": {
-                "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj"
+              "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj": {
+                "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj"
               },
-              "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj": {
-                "projectPath": "/Users/erenbasar/ECommerceApp/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj"
+              "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj": {
+                "projectPath": "/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Infrastructure/ECommerceAPI.Persistence/ECommerceAPI.Persistence.csproj"
               }
             }
           }

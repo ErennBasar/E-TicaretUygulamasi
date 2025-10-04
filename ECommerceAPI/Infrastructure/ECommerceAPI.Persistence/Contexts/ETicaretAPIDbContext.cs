@@ -30,6 +30,7 @@ public class ETicaretAPIDbContext : DbContext
             {
                 EntityState.Added => data.Entity.CreatedDate = DateTime.UtcNow, // State = Added , olanların CreateDate'ini düzenliyoruz
                 EntityState.Modified => data.Entity.UpdatedDate = DateTime.UtcNow, // State = Modified , olanların UpdateDate'ini düzenliyoruz
+                _ => DateTime.UtcNow
             };
         }
         

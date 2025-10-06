@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -27,6 +27,8 @@ export class Create extends Base implements OnInit{
   ngOnInit(): void {
     
   }
+
+  @Output() createdProduct : EventEmitter<Create_Product> = new EventEmitter();
 
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement){
 
@@ -63,6 +65,7 @@ export class Create extends Base implements OnInit{
         messageType: MessageType.SUCCESS,
         position: Position.BOTTOM_RIGHT
       });
+      this.createdProduct.emit(create_product);
     }, errorMessage => {
       this.alertify.message(errorMessage, {
         dismissOthers: true,

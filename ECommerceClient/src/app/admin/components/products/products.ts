@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Base, SpinnerType} from '../../../base/base';
 import {NgxSpinnerService} from 'ngx-spinner';
 import { HttpClientService } from '../../../services/common/http-client';
@@ -23,11 +23,11 @@ export class Products extends Base implements OnInit {
   }
 
   ngOnInit() {
-    this.showSpinner(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING);
+    // this.showSpinner(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING);
 
-    this.httpClientService.get<Create_Product[]>({
-      controller : "products"
-    }).subscribe(data => console.log(data));
+    // this.httpClientService.get<Create_Product[]>({
+    //   controller : "products"
+    // }).subscribe(data => console.log(data));
 
     // this.httpClientService.post({
     //   controller: "products"
@@ -53,5 +53,11 @@ export class Products extends Base implements OnInit {
     // this.httpClientService.get({
     //   fullEndPoint: "https://jsonplaceholder.typicode.com/posts"
     // }).subscribe(data => console.log(data));
+  }
+
+  @ViewChild(List) listComponents: List ;
+
+  createdProduct(createdProduct: Create_Product){
+    this.listComponents.getProducts();
   }
 }

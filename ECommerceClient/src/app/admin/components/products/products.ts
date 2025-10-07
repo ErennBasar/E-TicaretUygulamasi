@@ -13,6 +13,7 @@ import { List } from './list/list';
     MatSidenavModule,
     Create,
     List,
+    
   ],
   templateUrl: './products.html',
   styleUrl: './products.scss'

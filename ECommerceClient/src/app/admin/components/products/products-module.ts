@@ -7,14 +7,15 @@ import {Products} from './products';
 
 @NgModule({
   declarations: [
-  
+    
   ],
   imports: [
+    Products,
     CommonModule,
+    
     RouterModule.forChild([
       { path: "", component: Products}
     ]),
-    Products,
   ]
 })
 export class ProductsModule { }

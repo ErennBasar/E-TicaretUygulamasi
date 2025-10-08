@@ -30,7 +30,7 @@ export class List extends Base implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   // Verileri listelerken tüm verileri çekip listelemek yerine istenen sayıda veriyi listeme işlemi yaptım
- 
+
   async getProducts(){
     this.showSpinner(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING);
     const allProducts: { totalCount: number; products: List_Product[]} = await this.productService.read( this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5,

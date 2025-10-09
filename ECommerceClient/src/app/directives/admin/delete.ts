@@ -20,7 +20,7 @@ export class DeleteDirective {
     private _renderer: Renderer2,
     private httpClientService: HttpClientService ,
     private spinner: NgxSpinnerService,
-    private alertifyService: AlertifyService
+    private alertifyService: AlertifyService,
   ) {
     const img = _renderer.createElement("img");
     img.setAttribute("src", "assets/icons/delete_icon_solid.png");

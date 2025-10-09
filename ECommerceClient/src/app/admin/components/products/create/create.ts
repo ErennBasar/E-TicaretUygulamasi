@@ -7,33 +7,41 @@ import { Create_Product } from '../../../../contracts/create_product';
 import { Base, SpinnerType } from '../../../../base/base';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AlertifyService, MessageType, Position } from '../../../../services/admin/alertify';
+import {FileUpload, FileUploadOptions} from '../../../../services/common/file-upload/file-upload';
 
 @Component({
   selector: 'app-create',
   imports: [
-    MatFormFieldModule, 
+    MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    FileUpload,
   ],
   templateUrl: './create.html',
   styleUrl: './create.scss'
 })
 export class Create extends Base implements OnInit{
-  
+
   constructor(private productService: ProductService, spinner: NgxSpinnerService, private alertify: AlertifyService){
     super(spinner)
   }
 
   ngOnInit(): void {
-    
+
   }
 
   @Output() createdProduct : EventEmitter<Create_Product> = new EventEmitter();
-
+  @Output() fileUploadOptions: Partial<FileUploadOptions>={
+    action: 'upload',
+    controller: "products",
+    explanation: 'create',
+    isAdminPage: true,
+    accept: ".png, .jpg, .jpeg, .pdf"
+  };
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement){
 
     this.showSpinner(SpinnerType.PACMAN);
-    
+
     const create_product: Create_Product = new Create_Product();
 
     create_product.name = name.value;

@@ -245,3 +245,4 @@
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/ECommerceAPI.Infrastructure.dll
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/ECommerceAPI.Infrastructure.pdb
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/ECommerceAPI.API.staticwebassets.runtime.json

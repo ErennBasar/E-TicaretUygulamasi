@@ -4,6 +4,7 @@ using ECommerceAPI.Application.Repositories.Customer;
 using ECommerceAPI.Application.Repositories.Order;
 using ECommerceAPI.Application.Repositories.Product;
 using ECommerceAPI.Application.RequestParameters;
+using ECommerceAPI.Application.Services;
 using ECommerceAPI.Application.ViewModels.Products;
 using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
@@ -18,7 +19,7 @@ namespace ECommerceAPI.API.Controllers
         //private readonly IProductService _productService;
         private readonly IProductWriteRepository _productWriteRepository;
         private readonly IProductReadRepository _productReadRepository;
-
+        readonly IFileService  _fileService;
         private readonly IWebHostEnvironment _webHostEnvironment;
         // private readonly IOrderWriteRepository _orderWriteRepository;
         // private readonly ICustomerWriteRepository _customerWriteRepository;
@@ -31,13 +32,15 @@ namespace ECommerceAPI.API.Controllers
             // IOrderWriteRepository orderWriteRepository,
             // ICustomerWriteRepository customerWriteRepository,
             // IOrderReadRepository orderReadRepository,
-            IWebHostEnvironment webHostEnvironment
+            IWebHostEnvironment webHostEnvironment, 
+            IFileService fileService
             )
         {
            // _productService = productService;
             _productWriteRepository = productWriteRepository;
             _productReadRepository = productReadRepository;
             _webHostEnvironment = webHostEnvironment;
+            _fileService = fileService;
             // _orderWriteRepository = orderWriteRepository;
             // _customerWriteRepository = customerWriteRepository;
             // _orderReadRepository = orderReadRepository;
@@ -111,22 +114,7 @@ namespace ECommerceAPI.API.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Upload()
         {
-            //wwwroot/resource/product-images
-            string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "resource/product-images");
-
-            if (!Directory.Exists(uploadPath))
-                Directory.CreateDirectory(uploadPath);
-            
-            Random r = new();
-            foreach (IFormFile file in Request.Form.Files)
-            {
-                string fullPath = Path.Combine(uploadPath, $"{r.NextDouble()}{Path.GetExtension(file.FileName)}" );      
-                
-                using FileStream fileStream = new(fullPath, FileMode.Create, FileAccess.Write,FileShare.None, 1024 * 1024, useAsync: false);
-                await file.CopyToAsync(fileStream);
-                await fileStream.FlushAsync();
-            }
-
+            await _fileService.UploadAsync("resource/product-images", Request.Form.Files);
             return Ok();
         }
         

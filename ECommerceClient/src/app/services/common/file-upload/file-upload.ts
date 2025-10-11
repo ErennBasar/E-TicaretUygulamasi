@@ -1,12 +1,11 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FileSystemFileEntry, NgxFileDropEntry, NgxFileDropModule} from 'ngx-file-drop'; // drag, drop işlevselliği
 import {HttpClientService} from '../http-client';
 import {HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {AlertifyService, MessageType, Position} from '../../admin/alertify';
 import {CustomToastrService, ToastrMessageType, ToastrPosition} from '../../ui/custom-toastr';
-import {MatDialog} from '@angular/material/dialog';
-import {FileUploadDialog} from '../../../dialogs/file-upload-dialog/file-upload-dialog';
+import {DialogService} from '../dialog.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -19,12 +18,11 @@ import {FileUploadDialog} from '../../../dialogs/file-upload-dialog/file-upload-
 })
 export class FileUpload {
 
-  readonly dialog = inject(MatDialog);
-
   constructor(
     private httpClientService: HttpClientService,
     private alertifyService: AlertifyService,
     private customToastrService: CustomToastrService,
+    private dialogService: DialogService
     ) {
   }
 
@@ -33,18 +31,8 @@ export class FileUpload {
   @Input() options:Partial<FileUploadOptions>
   public selectedFiles(files: NgxFileDropEntry[]) { //Kullanıcı dosya seçer, selectedFiles tetiklenir
     this.files = files;
-    this.openDialog('300ms', '300ms');
-  }
-
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    const dialogRef = this.dialog.open(FileUploadDialog, { //Dialog açılır "Yüklemek istiyor musunuz?"
-      width: '350px',                                      //No -> İptal , Yes -> Yükleme başlar
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
+    this.dialogService.openFileUploadDialog().subscribe(result => { //Dialog açılır "Yüklemek istiyor musunuz?"
+      if (result) { //No -> İptal , Yes -> Yükleme başlar
         const fileData: FormData = new FormData(); //FormData oluştur
         for (const file of this.files) {
           (file.fileEntry as FileSystemFileEntry).file((_file: File) => {

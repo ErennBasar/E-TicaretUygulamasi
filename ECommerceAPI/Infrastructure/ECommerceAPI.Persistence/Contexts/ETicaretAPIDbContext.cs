@@ -1,6 +1,7 @@
 using ECommerceAPI.Domain.Entities;
 using ECommerceAPI.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
+using File = ECommerceAPI.Domain.Entities.File;
 
 namespace ECommerceAPI.Persistence.Contexts;
 
@@ -15,6 +16,10 @@ public class ETicaretAPIDbContext : DbContext
     public DbSet<Order> Orders { get; set; }
     // Bunları oluşturduktan sonra IoC container içine göndermem lazım
     // ServiceRegistration.cs'den yapacağız
+    
+    public DbSet<File> Files { get; set; }
+    public DbSet<ProductImageFile> ProductImageFiles { get; set; }
+    public DbSet<InvoiceFile> InvoiceFiles { get; set; }
     
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) // Veri eklediğimizde veya güncellediğimizde çalışacak metod
     {

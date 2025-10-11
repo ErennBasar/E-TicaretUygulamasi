@@ -6,6 +6,8 @@ import {HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {AlertifyService, MessageType, Position} from '../../admin/alertify';
 import {CustomToastrService, ToastrMessageType, ToastrPosition} from '../../ui/custom-toastr';
 import {DialogService} from '../dialog.service';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {SpinnerType} from '../../../base/base';
 
 @Component({
   selector: 'app-file-upload',
@@ -22,7 +24,8 @@ export class FileUpload {
     private httpClientService: HttpClientService,
     private alertifyService: AlertifyService,
     private customToastrService: CustomToastrService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private spinnerService: NgxSpinnerService
     ) {
   }
 
@@ -33,6 +36,7 @@ export class FileUpload {
     this.files = files;
     this.dialogService.openFileUploadDialog().subscribe(result => { //Dialog açılır "Yüklemek istiyor musunuz?"
       if (result) { //No -> İptal , Yes -> Yükleme başlar
+        this.spinnerService.show(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING); //Spinner göster
         const fileData: FormData = new FormData(); //FormData oluştur
         for (const file of this.files) {
           (file.fileEntry as FileSystemFileEntry).file((_file: File) => {
@@ -46,6 +50,7 @@ export class FileUpload {
           queryString: this.options.queryString,
           headers: new HttpHeaders({"responseType": "blob"})
         }, fileData).subscribe(data => {
+          this.spinnerService.hide(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING); //Spinner gizle
 
           const message: string = "Files succesfuly uploaded";
 
@@ -63,6 +68,7 @@ export class FileUpload {
           }
 
         }, (err: HttpErrorResponse) => {
+          this.spinnerService.hide(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING); //Spinner gizle
 
           const message: string = "Unexpected error occured while file uploading";
 

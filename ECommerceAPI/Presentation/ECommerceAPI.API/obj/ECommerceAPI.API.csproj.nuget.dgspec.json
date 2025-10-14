@@ -187,6 +187,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.25.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -1,4 +1,4 @@
-using ECommerceAPI.Application.Services;
+using ECommerceAPI.Application.Abstractions.Storage;
 using ECommerceAPI.Infrastructure.Operations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -6,13 +6,15 @@ using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace ECommerceAPI.Infrastructure.Services;
 
-public class FileService : IFileService
+public class FileService
 {
     readonly IWebHostEnvironment _webHostEnvironment;
-    
-    public FileService(IWebHostEnvironment webHostEnvironment)
+    readonly IStorageService _storageService;
+
+    public FileService(IWebHostEnvironment webHostEnvironment, IStorageService storageService)
     {
         _webHostEnvironment = webHostEnvironment;
+        _storageService = storageService;
     }
     
     public async Task<List<(string fileName, string path)>> UploadAsync(string path, IFormFileCollection files)
@@ -44,22 +46,7 @@ public class FileService : IFileService
         
     }
 
-    async Task<string> FileRenameAsync(string path, string fileName, int suffix = 0)
-    {
-        
-            string extension = Path.GetExtension(fileName);
-            string oldName = Path.GetFileNameWithoutExtension(fileName);
-            string regulatedName = NameOperation.CharacterRegulatory(oldName);
-            string newFileName = suffix == 0
-                ? $"{regulatedName}{extension}"
-                : $"{regulatedName}-{suffix}{extension}";
-
-            if (File.Exists(Path.Combine(path, newFileName)))
-                return await FileRenameAsync(path, fileName, suffix + 1);
-
-            return newFileName;
-        
-    }
+    
 
     public async Task<bool> CopyFileAsync(string path, IFormFile file)
     {
@@ -78,5 +65,23 @@ public class FileService : IFileService
             throw ex;
         }
 
+    }
+
+    private async Task<string> FileRenameAsync(string uploadPath, string fileName, int suffix = 0)
+    {
+        string extension = Path.GetExtension(fileName);
+        string oldName = Path.GetFileNameWithoutExtension(fileName);
+        string regulatedName = NameOperation.CharacterRegulatory(oldName);
+        string newFileName = suffix == 0
+            ? $"{regulatedName}{extension}"
+            : $"{regulatedName}-{suffix}{extension}";
+
+        // uploadPath'i path olarak kullanabilmek için, web root'dan sonraki kısmı alıyoruz
+        string relativePath = uploadPath.Replace(_webHostEnvironment.WebRootPath, "").TrimStart(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+
+        if (File.Exists(Path.Combine(uploadPath, newFileName)))
+            return await FileRenameAsync(uploadPath, fileName, suffix + 1);
+        else
+            return newFileName;
     }
 }

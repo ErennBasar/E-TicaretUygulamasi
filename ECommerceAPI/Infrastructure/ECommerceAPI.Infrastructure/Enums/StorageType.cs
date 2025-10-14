@@ -1,6 +1,9 @@
-namespace ECommerceAPI.Infrastructure.enums;
+namespace ECommerceAPI.Infrastructure.Enums;
 
-public class StorageType
+public enum StorageType
 {
-    
+    Local,
+    Azure,
+    AWS,
+    Ahmet
 }

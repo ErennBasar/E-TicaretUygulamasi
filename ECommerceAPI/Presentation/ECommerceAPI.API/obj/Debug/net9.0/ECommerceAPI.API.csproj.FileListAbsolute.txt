@@ -246,3 +246,9 @@
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/obj/Debug/net9.0/ECommerceAPI.API.genruntimeconfig.cache
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/obj/Debug/net9.0/ref/ECommerceAPI.API.dll
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/ECommerceAPI.API.staticwebassets.runtime.json
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Azure.Core.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Azure.Storage.Blobs.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Azure.Storage.Common.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/System.ClientModel.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/System.IO.Hashing.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/System.Memory.Data.dll

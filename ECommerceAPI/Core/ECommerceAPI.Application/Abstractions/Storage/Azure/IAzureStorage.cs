@@ -1,6 +1,6 @@
 namespace ECommerceAPI.Application.Abstractions.Storage.Azure;
 
-public interface IAzureStorage
+public interface IAzureStorage : IStorage
 {
     
 }

@@ -8,9 +8,11 @@ import {CustomToastrService, ToastrMessageType, ToastrPosition} from '../../ui/c
 import {DialogService} from '../dialog.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {SpinnerType} from '../../../base/base';
+import {FileUploadDialog, FileUploadDialogState} from '../../../dialogs/file-upload-dialog/file-upload-dialog';
 
 @Component({
   selector: 'app-file-upload',
+  standalone: true,
   imports: [
     CommonModule,
     NgxFileDropModule
@@ -25,63 +27,68 @@ export class FileUpload {
     private alertifyService: AlertifyService,
     private customToastrService: CustomToastrService,
     private dialogService: DialogService,
-    private spinnerService: NgxSpinnerService
-    ) {
-  }
+    private spinner: NgxSpinnerService
+    ) {}
 
-  public files: NgxFileDropEntry[];
+    public files: NgxFileDropEntry[];
 
-  @Input() options:Partial<FileUploadOptions>
-  public selectedFiles(files: NgxFileDropEntry[]) { //Kullanıcı dosya seçer, selectedFiles tetiklenir
-    this.files = files;
-    this.dialogService.openFileUploadDialog().subscribe(result => { //Dialog açılır "Yüklemek istiyor musunuz?"
-      if (result) { //No -> İptal , Yes -> Yükleme başlar
-        this.spinnerService.show(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING); //Spinner göster
-        const fileData: FormData = new FormData(); //FormData oluştur
-        for (const file of this.files) {
-          (file.fileEntry as FileSystemFileEntry).file((_file: File) => {
-            fileData.append(_file.name, _file, file.relativePath)
-          })
-        }
+    @Input() options:Partial<FileUploadOptions>
+    public selectedFiles(files: NgxFileDropEntry[]) {
+      console.log('ADIM 1: Dosyalar seçildi, selectedFiles metodu çalıştı.');
+      this.files = files;
+      const fileData: FormData = new FormData();
+      for (const file of files) {
+        (file.fileEntry as FileSystemFileEntry).file((_file: File) => {
+          fileData.append(_file.name, _file, file.relativePath);
+        });
+    }
+      console.log('ADIM 2: FormData dışarıya fırlatılıyor (emit).');
+    this.dialogService.openDialog({
+        componentType: FileUploadDialog,
+        data: FileUploadDialogState.Yes,
+        afterClosed: () => {
+          this.spinner.show(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING)
+          this.httpClientService.post({
+            controller: this.options.controller,
+            action: this.options.action,
+            queryString: this.options.queryString,
+            headers: new HttpHeaders({ "responseType": "blob" })
+          }, fileData).subscribe(data => {
 
-        this.httpClientService.post({ // HTTP POST
-          controller: this.options.controller,
-          action: this.options.action,
-          queryString: this.options.queryString,
-          headers: new HttpHeaders({"responseType": "blob"})
-        }, fileData).subscribe(data => {
-          this.spinnerService.hide(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING); //Spinner gizle
+          const message: string = "Dosyalar başarıyla yüklenmiştir.";
 
-          const message: string = "Files succesfuly uploaded";
-
-          if(this.options.isAdminPage){
-            this.alertifyService.message(message, {
-              dismissOthers: true,
-              messageType: MessageType.MESSAGE,
-              position: Position.BOTTOM_CENTER
-            })
+          this.spinner.hide(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING);
+          if (this.options.isAdminPage) {
+            this.alertifyService.message(message,
+              {
+                dismissOthers: true,
+                messageType: MessageType.SUCCESS,
+                position: Position.TOP_RIGHT
+              })
           } else {
-            this.customToastrService.message(message,"Succes",{
+            this.customToastrService.message(message, "Başarılı.", {
               messageType: ToastrMessageType.SUCCESS,
-              position: ToastrPosition.BOTTOM_CENTER
+              position: ToastrPosition.TOP_RIGHT
             })
           }
 
-        }, (err: HttpErrorResponse) => {
-          this.spinnerService.hide(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING); //Spinner gizle
 
-          const message: string = "Unexpected error occured while file uploading";
+        }, (errorResponse: HttpErrorResponse) => {
 
-          if(this.options.isAdminPage){
-            this.alertifyService.message(message, {
-              dismissOthers: true,
-              messageType: MessageType.ERROR,
-              position: Position.BOTTOM_CENTER
-            })
+          const message: string = "Dosyalar yüklenirken beklenmeyen bir hatayla karşılaşılmıştır.";
+
+          this.spinner.hide(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING)
+          if (this.options.isAdminPage) {
+            this.alertifyService.message(message,
+              {
+                dismissOthers: true,
+                messageType: MessageType.ERROR,
+                position: Position.TOP_LEFT
+              })
           } else {
-            this.customToastrService.message(message,"Error",{
+            this.customToastrService.message(message, "Başarsız.", {
               messageType: ToastrMessageType.ERROR,
-              position: ToastrPosition.BOTTOM_CENTER
+              position: ToastrPosition.TOP_LEFT
             })
           }
 
@@ -89,6 +96,19 @@ export class FileUpload {
       }
     });
   }
+
+  //openDialog(afterClosed: any): void {
+  //  const dialogRef = this.dialog.open(FileUploadDialogComponent, {
+  //    width: '250px',
+  //    data: FileUploadDialogState.Yes,
+  //  });
+
+  //  dialogRef.afterClosed().subscribe(result => {
+  //    if (result == FileUploadDialogState.Yes)
+  //      afterClosed();
+  //  });
+  //}
+
 }
 
 export class FileUploadOptions {

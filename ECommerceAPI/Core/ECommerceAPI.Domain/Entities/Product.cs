@@ -10,4 +10,7 @@ public class Product : BaseEntity
     
     // Bir product'ın birden çok order'ı olabilir demek
     public ICollection<Order>? Orders { get; set; }
+    
+    // Bir product'ın birden fazla resmi olabilir
+    public ICollection<ProductImageFile>? ProductImageFiles { get; set; }
 }

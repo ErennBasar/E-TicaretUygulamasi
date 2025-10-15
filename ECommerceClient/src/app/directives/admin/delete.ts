@@ -5,6 +5,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {DialogService} from '../../services/common/dialog.service';
 import {AlertifyService, MessageType, Position} from '../../services/admin/alertify';
 import {HttpErrorResponse} from '@angular/common/http';
+import {DeleteDialog, DeleteState} from '../../dialogs/delete-dialog/delete-dialog';
 
 declare var $: any;
 
@@ -34,32 +35,37 @@ export class DeleteDirective {
 
    @HostListener("click") // ilgili direciv'in(appDelete) kullanıldığı dom nesnesine tıklanıldığında hangi olay verildiyse o olay gerçekleşir
 
-   onclick() {
-    this.dialogService.openDeleteDialog().subscribe(result => {
-      if (result) {
-        this.spinner.show(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING);
-        const td: HTMLTableCellElement = this.element.nativeElement;
-        this.httpClientService.delete({
-          controller: this.controller
-        }, this.id).subscribe( () => {
-          $(td.parentElement).fadeOut(1000, () => {
-            this.hasanCallBack.emit();
-            this.alertifyService.message("Product succesfuly deleted",{
-              dismissOthers: true,
-              messageType: MessageType.SUCCESS,
-              position: Position.TOP_CENTER,
-            })
-          });
-
-        }, (errorResponse: HttpErrorResponse) => {
-          this.spinner.hide(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING);
-          this.alertifyService.message("Unexpected Error Occured",{
-            dismissOthers: true,
-            messageType: MessageType.ERROR,
-            position: Position.TOP_CENTER,
-          })
-        })
-      }
-    });
-  }
+   async onclick() {
+     this.dialogService.openDialog({
+       componentType: DeleteDialog,
+       data: DeleteState.Yes,
+       afterClosed: async () => {
+         this.spinner.show(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING);
+         const td: HTMLTableCellElement = this.element.nativeElement;
+         this.httpClientService.delete({
+           controller: this.controller
+         }, this.id).subscribe(data => {
+           $(td.parentElement).animate({
+             opacity: 0,
+             left: "+=50",
+             height: "toogle"
+           }, 700, () => {
+             this.hasanCallBack.emit();
+             this.alertifyService.message(`${this.controller == 'roles' ? 'Rol' : 'Ürün'} başarıyla silinmiştir.`, {
+               dismissOthers: true,
+               messageType: MessageType.SUCCESS,
+               position: Position.BOTTOM_RIGHT
+             })
+           });
+         }, (errorResponse: HttpErrorResponse) => {
+           this.spinner.hide(SpinnerType.BALL_SPIN_CLOCKWİSE_FADE_ROTATING);
+           this.alertifyService.message("Ürün silinirken beklenmeyen bir hatayla karşılaşılmıştır.", {
+             dismissOthers: true,
+             messageType: MessageType.ERROR,
+             position: Position.TOP_LEFT
+           });
+         });
+       }
+     });
+   }
 }

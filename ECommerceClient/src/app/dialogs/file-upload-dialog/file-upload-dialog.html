@@ -3,8 +3,8 @@
   Do you want to continue to upload files ?
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button matButton [mat-dialog-close]="false">No</button>
-  <button matButton [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+  <button mat-button (click)="close()">No</button>
+  <button matButton [mat-dialog-close]="data" cdkFocusInitial>Yes</button>
 </mat-dialog-actions>
 
 

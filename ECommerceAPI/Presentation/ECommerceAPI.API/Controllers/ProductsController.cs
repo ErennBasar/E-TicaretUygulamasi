@@ -13,6 +13,7 @@ using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Constraints;
+using Microsoft.EntityFrameworkCore;
 using File = ECommerceAPI.Domain.Entities.File;
 
 namespace ECommerceAPI.API.Controllers
@@ -34,6 +35,8 @@ namespace ECommerceAPI.API.Controllers
         readonly IProductImageFileWriteRepository  _productImageFileWriteRepository;
         
         readonly IStorageService  _storageService;
+        readonly IConfiguration _configuration;
+        
         // private readonly IOrderWriteRepository _orderWriteRepository;
         // private readonly ICustomerWriteRepository _customerWriteRepository;
         // private readonly IOrderReadRepository _orderReadRepository;
@@ -53,8 +56,7 @@ namespace ECommerceAPI.API.Controllers
             IInvoiceFileWriteRepository invoiceFileWriteRepository, 
             IProductImageFileReadRepository productImageFileReadRepository, 
             IProductImageFileWriteRepository productImageFileWriteRepository, 
-            IStorageService storageService
-            )
+            IStorageService storageService, IConfiguration configuration)
         {
            // _productService = productService;
             _productWriteRepository = productWriteRepository;
@@ -68,6 +70,7 @@ namespace ECommerceAPI.API.Controllers
             _productImageFileReadRepository = productImageFileReadRepository;
             _productImageFileWriteRepository = productImageFileWriteRepository;
             _storageService = storageService;
+            this._configuration = configuration;
             // _orderWriteRepository = orderWriteRepository;
             // _customerWriteRepository = customerWriteRepository;
             // _orderReadRepository = orderReadRepository;
@@ -138,7 +141,7 @@ namespace ECommerceAPI.API.Controllers
             return Ok();
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("[action]")] // ...com/api/products?id=1 (query string yapısı) Upload metodunu servis üzerinden çağırdığımız için id olmayadabilir
         public async Task<IActionResult> Upload(string id)
         {
             List<(string FileName, string pathOrContainer)> result = await _storageService.UploadAsync("photo-images", Request.Form.Files);
@@ -186,7 +189,34 @@ namespace ECommerceAPI.API.Controllers
             
             return Ok();
         }
-        
+
+        [HttpGet("[action]/{id}")] // ...com/api/products/1 (route data)
+        public async Task<IActionResult> GetProductImages(string id)
+        {
+            Product? product = await _productReadRepository.Table.Include(p => p.ProductImageFiles)
+                .FirstOrDefaultAsync(p => p.Id == Guid.Parse(id));
+
+            await Task.Delay(600);
+            return Ok(product.ProductImageFiles.Select(p => new
+            {
+                Path = $"{_configuration["BaseStorageUrl"]}/{p.Path}",
+                p.FileName,
+                p.Id
+            }));
+        }
+
+        [HttpDelete("[action]/{id}")]
+        public async Task<IActionResult> DeleteProductImage(string id, string imageId)
+        {
+            Product? product = await _productReadRepository.Table.Include(p => p.ProductImageFiles)
+                .FirstOrDefaultAsync(p => p.Id == Guid.Parse(id));
+
+            ProductImageFile productImageFile = product.ProductImageFiles.FirstOrDefault(p => p.Id == Guid.Parse(imageId));
+            product.ProductImageFiles.Remove(productImageFile);
+
+            await _productWriteRepository.SaveAsync();
+            return Ok();
+        }
         // [HttpGet]
         // public IActionResult GetProducts()
         // {

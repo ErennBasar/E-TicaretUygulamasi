@@ -1,0 +1,20 @@
+.product-image-card {
+  max-width: 220px;
+}
+mat-card {
+  border: none !important;
+  box-shadow: none !important;
+
+  margin-top: 16px;
+}
+.product-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.card-container {
+  display: flex;          // 1. Öğeleri yan yana dizmek için Flexbox'ı aktif et.
+  flex-wrap: wrap;        // 2. Satıra sığmayan kartların bir alt satıra geçmesini sağla.
+  gap: 16px;              // 3. Kartların arasında hem yatayda hem dikeyde 16px boşluk bırak.
+  padding: 16px;          // 4. Konteynerin kenarlarında biraz boşluk bırak (görsel olarak daha iyi).
+}

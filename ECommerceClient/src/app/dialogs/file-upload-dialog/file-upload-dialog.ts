@@ -1,13 +1,6 @@
 import {Component, Inject, inject} from '@angular/core';
 import {MatButton} from "@angular/material/button";
-import {
-  MAT_DIALOG_DATA,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle
-} from "@angular/material/dialog";
+import {MatDialogModule, MAT_DIALOG_DATA, MatDialogRef,} from '@angular/material/dialog';
 import {BaseDialog} from '../base/base-dialog';
 
 @Component({
@@ -15,10 +8,7 @@ import {BaseDialog} from '../base/base-dialog';
   standalone: true,
   imports: [
     MatButton,
-    MatDialogActions,
-    MatDialogContent,
-    MatDialogTitle,
-    MatDialogClose
+    MatDialogModule
   ],
   templateUrl: './file-upload-dialog.html',
   styleUrl: './file-upload-dialog.scss'

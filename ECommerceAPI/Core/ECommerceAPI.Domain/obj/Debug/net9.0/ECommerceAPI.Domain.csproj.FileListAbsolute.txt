@@ -10,3 +10,4 @@
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/refint/ECommerceAPI.Domain.dll
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ECommerceAPI.Domain.pdb
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ref/ECommerceAPI.Domain.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Core/ECommerceAPI.Domain/obj/Debug/net9.0/ECommerceAPI.Domain.csproj.AssemblyReference.cache

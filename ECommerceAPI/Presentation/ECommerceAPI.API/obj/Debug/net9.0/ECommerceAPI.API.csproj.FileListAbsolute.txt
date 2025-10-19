@@ -252,3 +252,9 @@
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/System.ClientModel.dll
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/System.IO.Hashing.dll
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/System.Memory.Data.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/MediatR.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/MediatR.Contracts.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll

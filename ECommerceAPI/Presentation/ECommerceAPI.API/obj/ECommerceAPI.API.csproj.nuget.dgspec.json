@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[10.4.0, )"
             },
+            "MediatR": {
+              "target": "Package",
+              "version": "[13.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.9, )"
@@ -124,6 +128,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[13.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -191,6 +201,10 @@
             "Azure.Storage.Blobs": {
               "target": "Package",
               "version": "[12.25.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[13.0.0, )"
             }
           },
           "imports": [
@@ -257,6 +271,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[13.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.9, )"
@@ -354,6 +372,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[13.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.4, )"

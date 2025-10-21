@@ -5,6 +5,7 @@ using ECommerceAPI.Application.Repositories.InvoiceFile;
 using ECommerceAPI.Application.Repositories.Order;
 using ECommerceAPI.Application.Repositories.Product;
 using ECommerceAPI.Application.Repositories.ProductImageFile;
+using ECommerceAPI.Domain.Entities.Identity;
 using ECommerceAPI.Persistence.Concretes;
 using ECommerceAPI.Persistence.Contexts;
 using ECommerceAPI.Persistence.Repositories.Customer;
@@ -27,6 +28,17 @@ public static class ServiceRegistration
 
         // Postgresql kullanacağım için Nuget'den Npgsql.EntityFrameworkCore.PostgreSQL ekledim
         services.AddDbContext<ETicaretAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionString));
+        
+        //ETicaretAPIDbContext.cs 'de IdentityDbContext<AppUser, AppRole, string> eklediğimiz için burda bu eklemeyi yaptık
+        services.AddIdentity< AppUser, AppRole>(options =>
+        {
+            options.Password.RequiredLength = 3;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireLowercase = false;
+            options.Password.RequireDigit = false;
+            
+        }).AddEntityFrameworkStores<ETicaretAPIDbContext>(); 
         
         // AddDbContext default olarak scoped olarak eklediği için Repository servislerini de scoped olarak ekledik.
         

@@ -1,8 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
 import {NgClass} from '@angular/common';
 import {User} from '../../../entities/user';
+import {UserService} from '../../../services/common/models/user';
+import {Create_user} from '../../../contracts/users/create_user';
+import {CustomToastrService, ToastrMessageType, ToastrPosition} from '../../../services/ui/custom-toastr';
+import {elementSelectors} from '@angular/cdk/schematics';
 
 @Component({
   selector: 'app-register',
@@ -11,11 +22,12 @@ import {User} from '../../../entities/user';
     NgClass
   ],
   templateUrl: './register.html',
+  standalone: true,
   styleUrl: './register.scss'
 })
 export class Register implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private toastrService: CustomToastrService) {
 
   }
 
@@ -42,7 +54,7 @@ export class Register implements OnInit {
       ],
       password: ["", [
         Validators.required,
-        Validators.minLength(10),
+        Validators.minLength(3),
         ],
       ],
       passwordAgain: ["", [
@@ -59,11 +71,24 @@ export class Register implements OnInit {
   }
 
   submitted: boolean = false;
-  onSubmit(data: User) {
+  async onSubmit(user: User) {
     this.submitted = true;
 
     if(this.frm.invalid)
       return;
+
+    const result: Create_user = await this.userService.create(user);
+    if(result.succeeded){
+      this.toastrService.message(result.message, "User Created Succesfully",{
+        messageType: ToastrMessageType.SUCCESS,
+        position: ToastrPosition.TOP_FULL_WIDTH
+      })
+    }
+    else
+      this.toastrService.message(result.message, "Error occurred creating user",{
+        messageType: ToastrMessageType.ERROR,
+        position: ToastrPosition.BOTTOM_FULL_WIDTH
+      })
   }
 }
 

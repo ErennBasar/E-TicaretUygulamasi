@@ -16,7 +16,8 @@ declare var $: any;
     UiModule,
     RouterLink,
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

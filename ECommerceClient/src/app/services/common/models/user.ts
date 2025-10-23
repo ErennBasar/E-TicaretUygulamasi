@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClientService} from '../http-client';
 import {User} from '../../../entities/user';
 import {Create_user} from '../../../contracts/users/create_user';
 import {firstValueFrom, Observable} from 'rxjs';
+import {Token} from '../../../contracts/token/token';
+import {CustomToastrService, ToastrMessageType, ToastrPosition} from '../../ui/custom-toastr';
+import {TokenResponse} from '../../../contracts/token/tokenResponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private httpClientService: HttpClientService, private toastrService: CustomToastrService) { }
 
   async create(user: User) : Promise<Create_user> {
     const observable: Observable<Create_user | User> = this.httpClientService.post<Create_user | User>({
@@ -18,13 +21,25 @@ export class UserService {
     return await firstValueFrom(observable) as Create_user;
   }
 
-  async login(usernameOrEmail: string, password: string, callBackFunction?: () => void) : Promise<void> {
-    const observable: Observable<any> = this.httpClientService.post({
+  async login(usernameOrEmail: string, password: string, callBackFunction?: () => void) : Promise<any> {
+    const observable: Observable<any | TokenResponse> = this.httpClientService.post<any | TokenResponse >({
       controller: "users",
       action: "login",
     }, {usernameOrEmail, password })
 
-    await firstValueFrom(observable);
+    const tokenResponse: TokenResponse = await firstValueFrom(observable) as TokenResponse;
+
+    if(tokenResponse){
+      localStorage.setItem("accessToken", tokenResponse.token.accessToken); // toke.accesToken  f12 ile incelediğimde undefined geliyor niye
+      //localStorage.setItem("expiration", token.expiration.toString());
+
+      this.toastrService.message("User successfully login", "Login Successful",{
+        messageType: ToastrMessageType.SUCCESS,
+        position: ToastrPosition.TOP_LEFT
+      })
+    }
+
+
     callBackFunction();
   }
 }

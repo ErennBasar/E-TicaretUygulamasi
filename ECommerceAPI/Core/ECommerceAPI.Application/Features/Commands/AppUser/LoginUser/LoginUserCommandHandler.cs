@@ -1,3 +1,5 @@
+using ECommerceAPI.Application.Abstractions.Token;
+using ECommerceAPI.Application.DTOs;
 using ECommerceAPI.Application.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -8,11 +10,16 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommandRequest, 
 {
     readonly UserManager<Domain.Entities.Identity.AppUser>  _userManager ;
     readonly SignInManager<Domain.Entities.Identity.AppUser> _signInManager;
+    readonly ITokenHandler _tokenHandler;
 
-    public LoginUserCommandHandler(UserManager<Domain.Entities.Identity.AppUser> userManager, SignInManager<Domain.Entities.Identity.AppUser> signInManager)
+    public LoginUserCommandHandler(
+        UserManager<Domain.Entities.Identity.AppUser> userManager, 
+        SignInManager<Domain.Entities.Identity.AppUser> signInManager, 
+        ITokenHandler tokenHandler)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _tokenHandler = tokenHandler;
     }
 
 
@@ -31,8 +38,18 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommandRequest, 
         if (result.Succeeded)
         {
             // Yetkiler belirlenecek
+            Token token = _tokenHandler.CreateAccessToken(8);
+            return new LoginUserSuccessCommandResponse()
+            {
+                Token = token
+            };
         }
 
-        return new();
+        // return new LoginUserErrorCommandResponse()
+        // {
+        //     Message = "Invalid username or password !!! "
+        // };
+
+        throw new AuthenticationErrorException();
     }
 }

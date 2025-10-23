@@ -24,7 +24,7 @@ namespace ECommerceAPI.API.Controllers
             return Ok(response);
         }
 
-        [HttpPost("action")]
+        [HttpPost("login")]
         public async Task<IActionResult> Login(LoginUserCommandRequest loginUserCommandRequest)
         {
             LoginUserCommandResponse response = await _mediator.Send(loginUserCommandRequest);

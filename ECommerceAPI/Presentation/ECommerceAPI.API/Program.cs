@@ -1,3 +1,4 @@
+using System.Text;
 using ECommerceAPI.Application;
 using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Infrastructure;
@@ -7,6 +8,8 @@ using ECommerceAPI.Infrastructure.Services.Storage.Azure;
 using ECommerceAPI.Infrastructure.Services.Storage.Local;
 using ECommerceAPI.Persistence;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +36,23 @@ builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>
 
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer("Admin",options =>
+    {
+        // Buradaki konfigurasyonlar üzerinden token doğrulanacak
+        options.TokenValidationParameters = new()
+        {
+            ValidateIssuer = true, // Bileti satan gişeyi doğrular (token'i üreten kaynağın, benim güvendiğim kaynak olup olmadığını kontrol eder)
+            ValidateAudience = true, // Biletin doğru salon için olduğunu doğrular (token'in servis için üretilip üretilmediğini kontrol eder)
+            ValidateIssuerSigningKey = true, // Biletin sahte olup olmadığını doğrular (token'in security key verisinin doğrulanması)
+            ValidateLifetime = true, // token'in geçerlilik süresi
+            
+            ValidIssuer = builder.Configuration["Token:Issuer"],
+            ValidAudience = builder.Configuration["Token:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
+        };
+    });
 
 var app = builder.Build();
 

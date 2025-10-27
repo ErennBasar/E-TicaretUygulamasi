@@ -9,5 +9,8 @@ public static class ServiceRegistration
         collection.AddMediatR(cfg => {
             cfg.RegisterServicesFromAssembly(typeof(ServiceRegistration).Assembly);
         });
+
+        collection.AddHttpClient();  
+
     }
 }

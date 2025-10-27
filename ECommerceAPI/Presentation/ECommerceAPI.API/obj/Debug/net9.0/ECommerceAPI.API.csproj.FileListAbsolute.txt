@@ -267,3 +267,8 @@
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Google.Apis.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Google.Apis.Auth.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/Google.Apis.Core.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/System.Management.dll
+/Users/erenbasar/E-TicaretUygulamasi/ECommerceAPI/Presentation/ECommerceAPI.API/bin/Debug/net9.0/runtimes/win/lib/net7.0/System.Management.dll

@@ -26,6 +26,6 @@ export const routes: Routes = [
       .then(module => module.ProductsModule)},
   { path: "register", loadChildren : () => import("./ui/components/register/register-module")
       .then(module => module.RegisterModule)},
-  { path: "login", loadChildren : () => import("./ui/components/login/login-module")
-      .then(module => module.LoginModule)},
+  { path: "login", loadComponent : () => import("./ui/components/login/login")
+      .then(module => module.Login)},
 ];

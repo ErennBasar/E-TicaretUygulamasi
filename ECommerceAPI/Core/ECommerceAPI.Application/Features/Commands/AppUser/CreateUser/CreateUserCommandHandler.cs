@@ -1,3 +1,5 @@
+using ECommerceAPI.Application.Abstractions.Services;
+using ECommerceAPI.Application.DTOs.User;
 using ECommerceAPI.Application.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -6,39 +8,29 @@ namespace ECommerceAPI.Application.Features.Commands.AppUser.CreateUser;
 
 public class CreateUserCommandHandler :IRequestHandler<CreateUserCommandRequest, CreateUserCommandResponse>
 {
-    readonly UserManager<Domain.Entities.Identity.AppUser> _userManager;
+    readonly IUserService _userService;
 
-    public CreateUserCommandHandler(UserManager<Domain.Entities.Identity.AppUser> userManager)
+    public CreateUserCommandHandler(IUserService userService)
     {
-        _userManager = userManager;
+        _userService = userService;
     }
 
     public async Task<CreateUserCommandResponse> Handle(CreateUserCommandRequest request, CancellationToken cancellationToken)
     {
-        // _userManager. ile bakıldığında Identity mekanizması dahilinde kullanabileceğimiz metotlar gözüküyor.
-        IdentityResult result = await _userManager.CreateAsync(new()
+        CreateUserResponse response = await _userService.CreateAsync(new()
         {
-            Id = Guid.NewGuid().ToString(),
-            UserName = request.Username,
             Email = request.Email,
             NameSurname = request.NameSurname,
-            
-        }, request.Password);
-
-        CreateUserCommandResponse response = new()
+            Password = request.Password,
+            PasswordAgain = request.PasswordAgain,
+            Username = request.Username
+        });
+        
+        return new()
         {
-            Succeeded = result.Succeeded,
+            Message = response.Message,
+            Succeeded = response.Succeeded,
         };
         
-        if (result.Succeeded)
-            response.Message = "Successfully created user";
-        else
-            foreach (var error in result.Errors)
-            {
-                response.Message += $"{error.Code}: {error.Description}\n" ;
-            }
-        return response;
-        
-        //throw new UserCreateFailedException();
     }
 }

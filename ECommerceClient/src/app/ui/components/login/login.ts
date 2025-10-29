@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {UserService} from '../../../services/common/models/user';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {Base, SpinnerType} from '../../../base/base';
 import {AuthService} from '../../../services/common/auth';
@@ -11,6 +10,7 @@ import {
   SocialUser
 } from '@abacritt/angularx-social-login';
 import {CustomToastrService} from '../../../services/ui/custom-toastr';
+import {UserAuthService} from '../../../services/common/models/user-auth';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,7 @@ import {CustomToastrService} from '../../../services/ui/custom-toastr';
 })
 export class Login extends Base{
   constructor(
-    private userService: UserService,
+    private userAuthService: UserAuthService,
     spinner: NgxSpinnerService,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
@@ -36,13 +36,13 @@ export class Login extends Base{
       this.showSpinner(SpinnerType.PACMAN);
       switch (user.provider) {
         case 'GOOGLE':
-          await userService.googleLogin(user, ()=> {
+          await userAuthService.googleLogin(user, ()=> {
             this.authService.identityCheck();
             this.hideSpinner(SpinnerType.PACMAN)
           })
           break;
         case 'FACEBOOK':
-          await userService.facebookLogin(user, ()=> {
+          await userAuthService.facebookLogin(user, ()=> {
             this.authService.identityCheck();
             this.hideSpinner(SpinnerType.PACMAN)
           })
@@ -53,7 +53,7 @@ export class Login extends Base{
   }
   async login(usernameOrEmail: string, password: string) {
     this.showSpinner(SpinnerType.PACMAN);
-    await this.userService.login(usernameOrEmail, password, () => {
+    await this.userAuthService.login(usernameOrEmail, password, () => {
       this.authService.identityCheck()
 
       this.activatedRoute.queryParams.subscribe(params => {
@@ -65,11 +65,7 @@ export class Login extends Base{
       this.hideSpinner(SpinnerType.PACMAN);
     });
   }
-
   async facebookLogin() {
     await this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID)
   }
-
-
-
 }

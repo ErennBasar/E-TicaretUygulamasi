@@ -59,12 +59,12 @@ export const appConfig: ApplicationConfig = {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '2196314781951453-fopkc0banacj7b6opbkuf2jaj3pah4pu.apps.googleusercontent.com' // Google Cloud ID
+              '219631478195-fopkc0banacj7b6opbkuf2jaj3pah4pu.apps.googleusercontent.com' // Google Cloud ID
             )
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider("3141755649727503945")
+            provider: new FacebookLoginProvider("755649727503945")
           }
         ],
         onError: (err) => {

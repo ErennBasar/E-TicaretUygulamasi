@@ -9,7 +9,7 @@ import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {provideToastr} from 'ngx-toastr';
-import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt';
 import {
   FacebookLoginProvider,
@@ -17,6 +17,7 @@ import {
   SocialAuthServiceConfig,
   SocialLoginModule
 } from '@abacritt/angularx-social-login';
+import {HttpErrorHandlerInterceptorService} from './common/http-error-handler-interceptor';
 //import {HttpClientModule} from '@angular/common/http';
 
 // 2. Token getter fonksiyonunu (AOT derlemesi için) dışarı aldık
@@ -37,6 +38,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptorsFromDi()),
 
     { provide: 'baseUrl', useValue: 'http://localhost:5013/api', multi: true },
+    { provide:HTTP_INTERCEPTORS, useClass:HttpErrorHandlerInterceptorService, multi: true },
 
     importProvidersFrom(
       //HttpClientModule, <-- Eski yöntem
@@ -65,7 +67,7 @@ export const appConfig: ApplicationConfig = {
           {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider("755649727503945")
-          }
+          },
         ],
         onError: (err) => {
           console.error(err);
